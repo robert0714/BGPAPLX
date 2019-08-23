@@ -1,7 +1,7 @@
 
 ```bash
-$ vagrant up MACHINE01  
-$ vagrant ssh MACHINE01 -- -l hduser
+$ vagrant up BGPAPLX01  
+$ vagrant ssh BGPAPLX01 -- -l hduser
 ```
 
 The password of *hduser* is `hduser`.
@@ -21,8 +21,8 @@ http://cassandra.apache.org/doc/latest/operating/hardware.html
 ## Clone a new VM from Master box file
 
 ```bash
-[hadoop-single-node-vagrant]$ vagrant halt MACHINE01
-[hadoop-single-node-vagrant]$ vagrant package MACHINE01  --output master.box
+[hadoop-single-node-vagrant]$ vagrant halt BGPAPLX01
+[hadoop-single-node-vagrant]$ vagrant package BGPAPLX01   --output master.box
 [hadoop-single-node-vagrant]$ vagrant box add robert-cassandra-box master.box
 ```
 
