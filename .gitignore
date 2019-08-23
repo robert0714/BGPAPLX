@@ -1,0 +1,7 @@
+*.gz
+*.tgz
+.vagrant/
+hadoop-mapreduce-sametaste/
+**.swp
+**.log
+**.sh
