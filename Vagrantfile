@@ -24,6 +24,7 @@ Vagrant.configure(2) do |config|
       SHELL
     d.vm.provision :shell, path: "scripts/post-deploy.sh"
 #    d.vm.provision :shell, path: "scripts/post-deploy-ubuntu.sh"
+    d.vm.provision :shell, inline: " sudo route delete default; sudo route add default gw 192.168.57.1 dev enp0s8 "
   end  
   config.vm.define "BGPAPLX02" do |d| 
     d.vm.box = "robert-cassandra-box" 
