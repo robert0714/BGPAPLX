@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
       SHELL
     d.vm.provision :shell, path: "scripts/post-deploy.sh"
 #    d.vm.provision :shell, path: "scripts/post-deploy-ubuntu.sh"
-    d.vm.provision :shell, inline: " sudo route delete default; sudo route add default gw 192.168.57.1 dev enp0s8 ",run: "always"
+    d.vm.provision :shell, inline: " sudo route delete default; sudo route add default gw 192.168.57.1 dev eth1 ",run: "always"
   end  
   config.vm.define "BGPAPLX02" do |d| 
     d.vm.box = "robert-cassandra-box" 
@@ -42,7 +42,7 @@ Vagrant.configure(2) do |config|
          systemctl restart sshd
          sudo mv /usr/local/apache-cassandra/conf/machine_2.yaml  /usr/local/apache-cassandra/conf/cassandra.yaml
       SHELL
-    d.vm.provision :shell, inline: " sudo route delete default; sudo route add default gw 192.168.57.1 dev enp0s8 ",run: "always"
+    d.vm.provision :shell, inline: " sudo route delete default; sudo route add default gw 192.168.57.1 dev eth1 ",run: "always"
   end  
   config.vm.define "BGPAPLX03" do |d| 
     d.vm.box = "robert-cassandra-box" 
@@ -59,7 +59,7 @@ Vagrant.configure(2) do |config|
          systemctl restart sshd
          sudo mv /usr/local/apache-cassandra/conf/machine_3.yaml  /usr/local/apache-cassandra/conf/cassandra.yaml
       SHELL
-    d.vm.provision :shell, inline: " sudo route delete default; sudo route add default gw 192.168.57.1 dev enp0s8 ",run: "always"
+    d.vm.provision :shell, inline: " sudo route delete default; sudo route add default gw 192.168.57.1 dev eth1 ",run: "always"
   end
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
